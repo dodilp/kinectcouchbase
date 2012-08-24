@@ -1,0 +1,5 @@
+\\psf\Home\Desktop\Kinect\Kinect.Server\bin\Release\Kinect.Server.exe
+\\psf\Home\Desktop\Kinect\Kinect.Server\bin\Release\Kinect.Server.pdb
+\\psf\Home\Desktop\Kinect\Kinect.Server\bin\Release\Fleck.dll
+\\psf\Home\Desktop\Kinect\Kinect.Server\obj\x86\Release\Kinect.Server.exe
+\\psf\Home\Desktop\Kinect\Kinect.Server\obj\x86\Release\Kinect.Server.pdb
