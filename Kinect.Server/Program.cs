@@ -6,6 +6,8 @@ using System.Threading;
 using System.Timers;
 using Fleck;
 using Microsoft.Kinect;
+using Couchbase;
+using Enyim.Caching;
 
 namespace Kinect.Server
 {
@@ -14,13 +16,20 @@ namespace Kinect.Server
         static List<IWebSocketConnection> _sockets;
         static Skeleton[] skeletons;
         static KinectSensor m_kinect;
+        static CouchbaseClient m_cclient;
 
         static bool _initialized = false;
 
         static void Main(string[] args)
         {
+            InitializeCouchbase();
             InitilizeKinect();
             InitializeSockets();
+        }
+
+        private static void InitializeCouchbase()
+        {
+            //m_cclient = new CouchbaseClient("default", "");
         }
 
         private static void InitializeSockets()
@@ -64,6 +73,8 @@ namespace Kinect.Server
 
             m_kinect.Start();
 
+            _initialized = true;
+
             m_kinect.SkeletonFrameReady += new EventHandler<SkeletonFrameReadyEventArgs>(nui_SkeletonFrameReady);
         }
 
@@ -97,6 +108,9 @@ namespace Kinect.Server
                 foreach (var socket in _sockets)
                 {
                     socket.Send(json);
+                    TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
+                    int timestamp  = (int) t.TotalSeconds;
+                    //m_cclient.Store(Enyim.Caching.Memcached.StoreMode.Set, timestamp.ToString(), json);         
                 }
             }
         }

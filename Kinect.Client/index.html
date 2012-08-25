@@ -1,13 +1,28 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Kinect &amp; HTML5</title>
+    <title>Couchbase Server 2.0 - Kinect Demo</title>
+    <style>
+	.one  {position: absolute;
+       top: 7%;
+       left:2%;
+       height: 10%;
+       width: 20%;
+       color: green;
+       }
+
+</style>
     <link rel="stylesheet" href="style.css" />
+    <script src="color-0.4.1.min.js"></script>
     <script src="web-sockets.js"></script>
 </head>
 <body>
-    <h1>Kinect &amp HTML5 WebSockets</h1>
-    Status: <label id="status">None</label>
-    <canvas id="canvas" width="640" height="480"></canvas>
+
+    <h1>Couchbase Server - Game On with the Kinect!</h1>
+    <table id="gametable"> 
+    <tr><td> 	
+    <div id="score" class="one"><h2>Score<h2></div></td><td>
+    <canvas id="canvas" width="640" height="480"></canvas></td></tr></table>
+    Status: <label id="status">None</label>
 </body>
 </html>

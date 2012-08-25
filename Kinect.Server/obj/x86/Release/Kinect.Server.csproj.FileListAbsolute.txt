@@ -3,3 +3,15 @@
 \\psf\Home\Desktop\Kinect\Kinect.Server\bin\Release\Fleck.dll
 \\psf\Home\Desktop\Kinect\Kinect.Server\obj\x86\Release\Kinect.Server.exe
 \\psf\Home\Desktop\Kinect\Kinect.Server\obj\x86\Release\Kinect.Server.pdb
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Kinect.Server.exe.config
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Kinect.Server.exe
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Couchbase.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Enyim.Caching.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Fleck.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Hammock.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Newtonsoft.Json.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Couchbase.xml
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Enyim.Caching.xml
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Newtonsoft.Json.xml
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\obj\x86\Release\Kinect.Server.exe

@@ -16,3 +16,17 @@ C:\Users\v-vapter\My Projects\KinectHtml5\Kinect.Server\obj\x86\Debug\ResolveAss
 \\psf\Home\Desktop\Kinect\Kinect.Server\bin\Debug\Kinect.Server.pdb
 \\psf\Home\Desktop\Kinect\Kinect.Server\bin\Debug\Fleck.dll
 \\psf\Home\Desktop\Kinect\Kinect.Server\obj\x86\Debug\Kinect.Server.csprojResolveAssemblyReference.cache
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\obj\x86\Debug\Kinect.Server.exe
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\obj\x86\Debug\Kinect.Server.pdb
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Kinect.Server.exe
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Kinect.Server.pdb
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Fleck.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Newtonsoft.Json.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Newtonsoft.Json.xml
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Kinect.Server.exe.config
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Couchbase.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Enyim.Caching.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Hammock.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Couchbase.xml
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Enyim.Caching.xml
