@@ -2,27 +2,28 @@
 <html>
 <head>
     <title>Couchbase Server 2.0 - Kinect Demo</title>
-    <style>
-	.one  {position: absolute;
-       top: 7%;
-       left:2%;
-       height: 10%;
-       width: 20%;
-       color: green;
-       }
-
+    <style type="text/css">
+	canvas {
+		border-width: 1px;
+		border-color: black;
+		border-style: solid;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+	}
 </style>
     <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="excanvas.js"></script>
     <script src="color-0.4.1.min.js"></script>
-    <script src="web-sockets.js"></script>
 </head>
 <body>
 
     <h1>Couchbase Server - Game On with the Kinect!</h1>
-    <table id="gametable"> 
-    <tr><td> 	
-    <div id="score" class="one"><h2>Score<h2></div></td><td>
-    <canvas id="canvas" width="640" height="480"></canvas></td></tr></table>
-    Status: <label id="status">None</label>
+    <canvas id="canvas" width="640" height="480"></canvas>
+    Status: <label id="status">None</label>
+
+    <script src="propulsion_1.2.js" type="text/javascript"></script>
+    <script src="game.js" type="text/javascript"></script>
+
 </body>
 </html>

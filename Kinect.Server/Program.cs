@@ -29,7 +29,7 @@ namespace Kinect.Server
 
         private static void InitializeCouchbase()
         {
-            //m_cclient = new CouchbaseClient("default", "");
+            m_cclient = new CouchbaseClient();
         }
 
         private static void InitializeSockets()
@@ -98,7 +98,10 @@ namespace Kinect.Server
             //Add to users local array
             foreach(Skeleton s in skeletons)
             {
-                users.Add(s);
+                if (s.TrackingState == SkeletonTrackingState.Tracked)
+                {
+                    users.Add(s);
+                }
             }  
         
             //Begin serializing
@@ -110,7 +113,7 @@ namespace Kinect.Server
                     socket.Send(json);
                     TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
                     int timestamp  = (int) t.TotalSeconds;
-                    //m_cclient.Store(Enyim.Caching.Memcached.StoreMode.Set, timestamp.ToString(), json);         
+                    m_cclient.Store(Enyim.Caching.Memcached.StoreMode.Set, timestamp.ToString(), json);         
                 }
             }
         }

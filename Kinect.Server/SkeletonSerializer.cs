@@ -58,6 +58,10 @@ namespace Kinect.Server
 
                 foreach (Joint joint in skeleton.Joints)
                 {
+                    //We only track left and right hand
+                    if (joint.JointType != JointType.WristLeft && joint.JointType != JointType.WristRight)
+                        continue;
+
                     Joint scaled = joint.ScaleTo(640, 480);
 
                     jsonSkeleton.Joints.Add(new JSONJoint
