@@ -19,6 +19,7 @@ namespace Kinect.Server
         static CouchbaseClient m_cclient;
 
         static bool _initialized = false;
+        static bool _isgameover = false;
 
         static void Main(string[] args)
         {
@@ -80,7 +81,7 @@ namespace Kinect.Server
 
         static private void nui_SkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
         {
-            if (!_initialized) return;
+            if (!_initialized && !_isgameover) return;
             List<Skeleton> users = new List<Skeleton>();
 
             if (e.OpenSkeletonFrame().SkeletonArrayLength == 0) return;
@@ -113,7 +114,7 @@ namespace Kinect.Server
                     socket.Send(json);
                     TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
                     int timestamp  = (int) t.TotalSeconds;
-                    m_cclient.Store(Enyim.Caching.Memcached.StoreMode.Set, timestamp.ToString(), json);         
+                    //m_cclient.Store(Enyim.Caching.Memcached.StoreMode.Set, timestamp.ToString(), json);         
                 }
             }
         }
