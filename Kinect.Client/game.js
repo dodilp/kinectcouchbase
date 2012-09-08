@@ -1,4 +1,8 @@
-﻿(function() {
+﻿
+
+var hands = [];
+
+(function() {
 	var spr=PP.spr,rm=PP.rm,obj=PP.obj,snd=PP.snd,al=PP.al,global=PP.global,Alarm=PP.Alarm,collision=PP.collision,draw=PP.draw,init=PP.init,key=PP.key,load=PP.load,loop=PP.loop,mouse=PP.mouse,physics=PP.physics,Sound=PP.Sound,SoundEffect=PP.SoundEffect,Sprite=PP.Sprite,view=PP.view,walkDown=PP.walkDown;
 	setTimeout(function() { obj.balloon.red.vspeed = 15;mma=2 }, 20000);
 	setTimeout(function() { obj.balloon.red.vspeed = 40;mma=3 }, 40000);
@@ -62,6 +66,8 @@
         		context.beginPath();
 */
 
+
+            hands = [];
         	// Display the skeleton joints.
         	for (var i = 0; i < jsonObject.skeletons.length; i++) 
 		{
@@ -71,7 +77,8 @@
 
 		                // Draw!!!
                 		//context.arc(parseFloat(joint.x), parseFloat(joint.y), 10, 0, Math.PI * 2, true);
-				draw.circle(parseFloat(joint.x), parseFloat(joint.y), 10, false, 'red');
+                        draw.circle(parseFloat(joint.x), parseFloat(joint.y), 10, false, 'red');
+                        hands.push({ "x": joint.x, "y": joint.y });
             		}
         	}
 
@@ -133,9 +140,16 @@
 					// mouse.left.down holds a value of true if the left mouse button has been
 					// pressed down since the end of the last loop
 					// The collision.point function determines if a point lies within a mask.
-					if (mouse.left.down && collision.point(t,mouse.x,mouse.y,false)) {
+					if (mouse.left.down) {
+                      hands[0] = { "x": mouse.x, "y": mouse.y }
+                    }
+
+                    for (var i = 0; i < hands.length; i++) {
+                      var hand = hands[i];
+                      if (collision.point(t,hand.x,hand.y,false)) {
 						global.score += t.vspeed;
 						loop.remove(t);
+                      }
 					}
 
 					// If the balloon moves so far up that it is outside of the view, remove it
