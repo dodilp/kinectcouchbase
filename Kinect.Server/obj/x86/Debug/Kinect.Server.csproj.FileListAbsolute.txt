@@ -30,3 +30,10 @@ C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Enyim.Cac
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Hammock.dll
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Couchbase.xml
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Enyim.Caching.xml
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Twitterizer2.Asynchronous.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Twitterizer2.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Twitterizer2.pdb
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Twitterizer2.xml
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Twitterizer2.Asynchronous.pdb
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Debug\Twitterizer2.Asynchronous.xml

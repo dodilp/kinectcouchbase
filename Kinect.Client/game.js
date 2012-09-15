@@ -53,44 +53,26 @@ var hands = [];
     	}
 
 
-  	// Receive data FROM the server!
+  		// Receive data FROM the server!
     	socket.onmessage = function (evt) {
-        	status.innerHTML = "Kinect data received.";
+        status.innerHTML = "Kinect data received.";
 
-        	// Get the data in JSON format.
-        	var jsonObject = eval('(' + evt.data + ')');
-
-/*
-        		context.clearRect(0, 0, canvas.width, canvas.height);
-        		context.fillStyle = "#FF0000";
-        		context.beginPath();
-*/
-
-
-            hands = [];
-        	// Display the skeleton joints.
-        	for (var i = 0; i < jsonObject.skeletons.length; i++) 
+        // Get the data in JSON format.
+        var jsonObject = eval('(' + evt.data + ')');
+			
+        hands = [];
+        // Display the skeleton joints.
+        for (var i = 0; i < jsonObject.skeletons.length; i++) 
 		{
-            		for (var j = 0; j < jsonObject.skeletons[i].joints.length; j++) 
+            for (var j = 0; j < jsonObject.skeletons[i].joints.length; j++) 
 			{
-                		var joint = jsonObject.skeletons[i].joints[j];
+                	var joint = jsonObject.skeletons[i].joints[j];
 
-		                // Draw!!!
-                		//context.arc(parseFloat(joint.x), parseFloat(joint.y), 10, 0, Math.PI * 2, true);
-                        draw.circle(parseFloat(joint.x), parseFloat(joint.y), 10, false, 'red');
-                        hands.push({ "x": joint.x, "y": joint.y });
-            		}
-        	}
-
-/*
-        		context.closePath();
-        		context.fill();
-*/
-
-        	// Inform the server about the update.
-        	socket.send("Skeleton updated on: " + (new Date()).toDateString() + ", " + (new Date()).toTimeString());
-    	};
-
+		            draw.circle(parseFloat(joint.x), parseFloat(joint.y), 20, false, 'red');
+                    hands.push({ "x": joint.x, "y": joint.y });
+            }
+        }
+    };
 
 	init('canvas',640,480);
 	loop.rate = 30;
@@ -196,9 +178,9 @@ var hands = [];
 		// The gameOver object controls the drawing of the final score and allows the user
 		// to press enter to start a new game.
 		obj.gameOver = {
-			tick: function(t) {
+		   tick: function(t) {
 				// If the enter key has been released, switch back to the play room
-				if (key.enter.up) {
+				if (key.space.up) {
 					loop.room = rm.play;
 				}
 			},
@@ -212,7 +194,9 @@ var hands = [];
 				draw.text(320,240,'Score: '+global.score);
 				draw.font = 'normal normal normal 20px Georgia';
 				draw.textValign = 'alphabetic';
-				draw.text(320,15,'Press enter to start a new game');
+				draw.text(320,15,'Press space to start a new game');
+				//alert(global.score);
+				//socket.send(global.score);
 			}
 		};
 
@@ -221,6 +205,11 @@ var hands = [];
 				// Create the alarm to be used as a countdown
 				t.countdown = new Alarm(function() {
 					// When the alarm reaches 0, switch to the rm.gameOver room.
+					if(global.sendscore == 0)
+					{
+						socket.send(global.name + "|" + global.score);
+						global.sendscore = 1;
+					}
 					loop.room = rm.gameOver;
 				});
 
@@ -241,7 +230,7 @@ var hands = [];
 				draw.font = 'normal normal normal 20px Georgia';
 				// Here, the score is drawn in the bottom left at position (0,480)
 				draw.text(0,480,'Score: '+global.score);
-
+				
 				// If there are 5 seconds left, switch to red
 				if (t.countdown.time <= loop.rate*5) {
 					draw.color = 'red';
@@ -259,8 +248,8 @@ var hands = [];
 			loop.register(obj.score,0,0);
 
 			global.score = 0;
-
-
+			global.sendscore = 0;
+			
 			// The balloonCreator alarm controls the timing of the creations of the balloons
 			var balloonCreator = new Alarm(function() {
 				var bal = obj.balloon;
@@ -281,6 +270,11 @@ var hands = [];
 		rm.gameOver = function() {
 			loop.register(obj.background,0,0);
 			loop.register(obj.gameOver);
+			/*
+			jPrompt('Type something:', 'Prefilled value', 'Prompt Dialog', function(r) {
+				if( r ) global.name = r;
+			});*/ 
+			global.name = prompt("Interested to play? Enter your name :", "CouchbaseGuest");
 		};
 
 		loop.active = true;
