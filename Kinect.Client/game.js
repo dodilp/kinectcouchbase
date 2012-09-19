@@ -68,14 +68,14 @@ var hands = [];
 			{
                 	var joint = jsonObject.skeletons[i].joints[j];
 
-		            draw.circle(parseFloat(joint.x), parseFloat(joint.y), 20, false, 'red');
+		            draw.circle(parseFloat(joint.x), parseFloat(joint.y), 8, false, 'red');
                     hands.push({ "x": joint.x, "y": joint.y });
             }
         }
     };
 
-	init('canvas',640,480);
-	loop.rate = 30;
+	init('canvas',800,800); //640 * 480
+	loop.rate = 28;
 
 	// The balloon object is created to better organize the sprites
 	spr.balloon = {};

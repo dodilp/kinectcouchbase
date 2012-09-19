@@ -7,7 +7,7 @@ using System.Timers;
 using Fleck;
 using Microsoft.Kinect;
 using Couchbase;
-using Enyim.Caching;
+using Enyim.Caching.Memcached;
 using Twitterizer;
 
 namespace Kinect.Server
@@ -25,7 +25,7 @@ namespace Kinect.Server
         static void Main(string[] args)
         {
             InitializeCouchbase();
-            //DiscoverKinectSensor();
+            DiscoverKinectSensor();
             InitializeSockets();
         }
 
@@ -114,6 +114,14 @@ namespace Kinect.Server
                         String msgformat = "{0} just scored {1}";
                         Tweet(String.Format(msgformat, name, score));
                     }
+
+                    //Try to push in CB
+                    String JSONStringFormat = "{ \"score\": \"" + score.ToString() + "\", \"name\": \"" + name.ToString() + "\" }";
+                    TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
+                    int timestamp  = (int) t.TotalSeconds;
+                   
+                    m_cclient.Store(StoreMode.Set, timestamp.ToString(), (Object)JSONStringFormat);
+
                 };
             });
 
@@ -137,19 +145,6 @@ namespace Kinect.Server
                 _initialized = true;
 
                 m_kinect.SkeletonFrameReady += new EventHandler<SkeletonFrameReadyEventArgs>(nui_SkeletonFrameReady);
-                m_kinect.ColorFrameReady +=new EventHandler<ColorImageFrameReadyEventArgs>(m_kinect_ColorFrameReady);
-        }
-
-        static void m_kinect_ColorFrameReady(object sender, ColorImageFrameReadyEventArgs e)
-        {
-            using (ColorImageFrame colorImageFrame = e.OpenColorImageFrame())
-            {
-                if (colorImageFrame == null) return;
-
-                byte[] pixeldata = new byte[colorImageFrame.PixelDataLength];
-                
-
-            }
         }
 
         static private void nui_SkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)

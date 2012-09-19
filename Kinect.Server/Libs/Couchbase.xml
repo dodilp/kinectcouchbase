@@ -65,23 +65,6 @@
             Connect to the nodes directly using the Memcached port
             </summary>
         </member>
-        <member name="T:Couchbase.Configuration.ProductionModeNameTransformer">
-            <summary>
-            Name transformer for Couchbase's development views. Prefixes all design document names with 'dev_'.
-            </summary>
-        </member>
-        <member name="M:Couchbase.Configuration.INameTransformer.Transform(System.String)">
-            <summary>
-            Transform the name into a different value.
-            </summary>
-            <param name="name">The name to be transformed.</param>
-            <returns>The new name.</returns>
-        </member>
-        <member name="T:Couchbase.Configuration.DevelopmentModeNameTransformer">
-            <summary>
-            Name transformer for Couchbase's development views. Prefixes all design document names with 'dev_'.
-            </summary>
-        </member>
         <member name="T:Couchbase.Configuration.IHeartbeatMonitorConfiguration">
             <summary>
             Defines an interface for setting Heartbeat monitor attributes
@@ -132,15 +115,6 @@
             Creates an <see cref="T:Enyim.Caching.Memcached.IPerformanceMonitor"/> instance which will be used to monitor the performance of the client.
             </summary>
         </member>
-        <member name="M:Couchbase.Configuration.ICouchbaseClientConfiguration.CreateDesignDocumentNameTransformer">
-            <summary>
-            Creates a name transformer instance whihc will be used to change the design document's name before retrieving it from the server.
-            </summary>
-            <remarks>
-            This way you can create additional views over the same data, and use one set production and other set(s) for testing and development without changing your application code. (Couchbase provides UI support 'development views' where the name of the design document is prefixed with dev_.)
-            </remarks>
-            <returns>A transformed name.</returns>
-        </member>
         <member name="P:Couchbase.Configuration.ICouchbaseClientConfiguration.Bucket">
             <summary>
             Gets the name of the bucket to be used. If not specified the "default" bucket will be used.
@@ -148,19 +122,9 @@
         </member>
         <member name="P:Couchbase.Configuration.ICouchbaseClientConfiguration.BucketPassword">
             <summary>
-            Gets the password used to connect to the bucket.
+            Gets the pasword used to connect to the bucket.
             </summary>
             <remarks> If null, the bucket name will be used. Set to String.Empty to use an empty password.</remarks>
-        </member>
-        <member name="P:Couchbase.Configuration.ICouchbaseClientConfiguration.Username">
-            <summary>
-            Gets the name of the administrator account for the cluster
-            </summary>
-        </member>
-        <member name="P:Couchbase.Configuration.ICouchbaseClientConfiguration.Password">
-            <summary>
-            Gets the password of the administrator account for the cluster
-            </summary>
         </member>
         <member name="P:Couchbase.Configuration.ICouchbaseClientConfiguration.Urls">
             <summary>
@@ -187,11 +151,6 @@
             Initializes a new instance of the <see cref="T:MemcachedClientConfiguration"/> class.
             </summary>
         </member>
-        <member name="P:Couchbase.Configuration.CouchbaseClientConfiguration.DesignDocumentNameTransformer">
-            <summary>
-            Gets or sets the INameTransformer instance.
-            </summary>
-        </member>
         <member name="P:Couchbase.Configuration.CouchbaseClientConfiguration.Bucket">
             <summary>
             Gets or sets the name of the bucket to be used. Can be overriden at the pool's constructor, and if not specified the "default" bucket will be used.
@@ -199,19 +158,9 @@
         </member>
         <member name="P:Couchbase.Configuration.CouchbaseClientConfiguration.BucketPassword">
             <summary>
-            Gets or sets the password used to connect to the bucket.
+            Gets or sets the pasword used to connect to the bucket.
             </summary>
             <remarks> If null, the bucket name will be used. Set to String.Empty to use an empty password.</remarks>
-        </member>
-        <member name="P:Couchbase.Configuration.CouchbaseClientConfiguration.Username">
-            <summary>
-            Gets or sets the admin username
-            </summary>
-        </member>
-        <member name="P:Couchbase.Configuration.CouchbaseClientConfiguration.Password">
-            <summary>
-            Gets or sets the admin password
-            </summary>
         </member>
         <member name="P:Couchbase.Configuration.CouchbaseClientConfiguration.Urls">
             <summary>
@@ -255,11 +204,6 @@
             Gets or sets the <see cref="T:Enyim.Caching.Memcached.IPerformanceMonitor"/> instance which will be used monitor the performance of the client.
             </summary>
         </member>
-        <member name="P:Couchbase.Configuration.ReadOnlyConfig.DesignDocumentNameTransformer">
-            <summary>
-            Gets or sets the INameTransformer instance.
-            </summary>
-        </member>
         <member name="T:Couchbase.Configuration.CouchbaseClientSection">
             <summary>
             Configures the <see cref="T:CouchbaseClient"/>. This class cannot be inherited.
@@ -300,11 +244,6 @@
             Gets or sets the <see cref="T:Enyim.Caching.Memcached.IPerformanceMonitor"/> which will be used monitor the performance of the client.
             </summary>
         </member>
-        <member name="P:Couchbase.Configuration.CouchbaseClientSection.DocumentNameTransformer">
-            <summary>
-            Gets or sets the <see cref="T:Enyim.Caching.Memcached.IMemcachedNodeLocator"/> which will be used to assign items to Memcached nodes.
-            </summary>
-        </member>
         <member name="T:Couchbase.Configuration.ServersElement">
             <summary>
             Configures the <see cref="T:MemcachedClient"/>. This class cannot be inherited.
@@ -321,14 +260,14 @@
             </summary>
             <remarks> If null, the bucket name will be used. Set to String.Empty to use an empty password.</remarks>
         </member>
-        <member name="P:Couchbase.Configuration.ServersElement.Username">
+        <member name="P:Couchbase.Configuration.ServersElement.UserName">
             <summary>
-            Gets or sets the username used to connect to a secured cluster
+            (Obsolete) Gets or sets the user name used to connect to a secured cluster
             </summary>
         </member>
         <member name="P:Couchbase.Configuration.ServersElement.Password">
             <summary>
-            Gets or sets the password used to connect to a secured cluster
+            (Obsolete) Gets or sets the password used to connect to a secured cluster
             </summary>
         </member>
         <member name="P:Couchbase.Configuration.ServersElement.Urls">
@@ -374,320 +313,6 @@
             Helper method; converts the collection into an <see cref="T:IPEndPoint"/> collection for the interface implementation.
             </summary>
             <returns></returns>
-        </member>
-        <member name="M:Couchbase.IView`1.Limit(System.Int32)">
-            <summary>
-            The view will return only the specified number of items.
-            </summary>
-            <param name="value">The number of items to return.</param>
-            <returns>A new <see cref="T:Couchbase.IView"/> instance that contains the specified number of items from the start of the index in the view.</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.Skip(System.Int32)">
-            <summary>
-            Bypasses the specified number of elements in the view then returns the remaining items.
-            </summary>
-            <param name="value">The number of elements to skip before returning the remaining items.</param>
-            <returns></returns>
-            <returns>A <see cref="T:Couchbase.IView"/> that contains the items that occur after the specified index in the view.</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.Stale(Couchbase.StaleMode)">
-            <summary>
-            Couchbase will not update the view before returning the data even if it contains stale values. Use this mode if you favor improved query latency over data constistency.
-            </summary>
-            <param name="value"></param>
-            <returns>A new <see cref="T:Couchbase.IView"/> instance that includes the stale items from the view.</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.OnError(Couchbase.OnErrorMode)">
-            <summary>
-            Control the behavior of view engine when returning a request in the event of an error.
-            </summary>
-            <param name="mode"></param>
-            <returns>A new <see cref="T:Couchbase.IView"/> instance potentially abbreviated by error conditions.</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.Descending(System.Boolean)">
-            <summary>
-            Sort the items of the view in descending order.
-            </summary>
-            <returns>A new <see cref="T:Couchbase.IView"/> whose elements are sorted in descending order .</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.StartKey``1(``0)">
-            <summary>
-            Start of key range
-            </summary>
-            <param name="from"></param>
-            <returns>A new <see cref="T:Couchbase.IView"/> with the row for the given key.</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.Key``1(``0)">
-            <summary>
-            Key of document
-            </summary>
-            <param name="key"></param>
-            <returns>A new <see cref="T:Couchbase.IView"/> for the row of the given key.</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.Keys``1(``0)">
-            <summary>
-            Keys of document set
-            </summary>
-            <param name="keys"></param>
-            <returns>A new <see cref="T:Couchbase.IView"/> for the rows for the given keys.</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.EndKey``1(``0)">
-            <summary>
-            End of key range
-            </summary>
-            <param name="to"></param>
-            <returns>TBD</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.StartDocumentId(System.String)">
-            <summary>
-            Start of document id range
-            </summary>
-            <param name="from"></param>
-            <returns>TBD</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.EndDocumentId(System.String)">
-            <summary>
-            End of document id range
-            </summary>
-            <param name="to"></param>
-            <returns>TBD</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.Reduce(System.Boolean)">
-            <summary>
-            Specifies whether Couchbase must run the view's reduce function.
-            </summary>
-            <param name="reduce">A value that specifies whether to run the reduce function.</param>
-            <returns>A new <see cref="T:Couchbase.IView"/> that can be used to retrieve the items.</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.Group(System.Boolean)">
-            <summary>
-            Specifies whether the reduce function reduces items to a set of distinct keys or to a single result row.
-            </summary>
-            <param name="group">A value that specifies the behavior of the reduce function.</param>
-            <returns>A new <see cref="T:Couchbase.IView"/> that can be used to retrieve the items.</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.GroupAt(System.Int32)">
-            <summary>
-            Specifies how many items of the key array are used to group the items by the reduce function.
-            </summary>
-            <param name="level">The level of required grouping.</param>
-            <returns>A new <see cref="T:Couchbase.IView"/> that can be used to retrieve the items.</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.WithInclusiveEnd(System.Boolean)">
-            <summary>
-            Specifies whether the end of the range (document or view key) is included in the result.
-            </summary>
-            <param name="inclusive">A value that specifies whether the end of the range is included in the result.</param>
-            <returns>A new <see cref="T:Couchbase.IView"/> that can be used to retrieve the items.</returns>
-        </member>
-        <member name="M:Couchbase.IView`1.GetPagedView(System.Int32,System.String,System.String)">
-            <summary>
-            Returns a view which allows the user to page retrieve all items of an index in pages.
-            </summary>
-            <param name="pageSize"></param>
-            <param name="pagedViewIdProperty">When paging over a generic view, this is the property to which the row's ID is mapped</param>
-            <param name="pagedViewKeyProperty">When paging over a generic view, this is the property to which the row's key is mapped</param>
-            <returns></returns>
-        </member>
-        <member name="P:Couchbase.IView`1.TotalRows">
-            <summary>
-            TotalRows that would be returned by view, regardless of filters
-            </summary>
-        </member>
-        <member name="M:Couchbase.CouchbaseViewBase`1.CreateRequest(Couchbase.IHttpClient)">
-            <summary>
-            Builds the request uri based on the parameters set by the user
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:Couchbase.CouchbaseView">
-            <summary>
-            Represents the results of a Couchbase index.
-            </summary>
-        </member>
-        <member name="M:Couchbase.IViewRow.GetItem">
-            <summary>
-            Returns the original item.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Couchbase.IViewRow.ViewKey">
-            <summary>
-            Returns the row key of this instance. (It is usually generated by the mapper.)
-            </summary>
-        </member>
-        <member name="P:Couchbase.IViewRow.ItemId">
-            <summary>
-            Returns the id of the item referenced by this row. This id can be used to 
-            perform the standard (Set/Get/Remove/etc.) operations on the item.
-            </summary>
-        </member>
-        <member name="P:Couchbase.IViewRow.Info">
-            <summary>
-            Returns all data from the row. These are usually parts of the original document emitted by the mapper (or the reducer).
-            </summary>
-        </member>
-        <member name="T:Couchbase.HammockHttpClient">
-            <summary>
-            Default implementation of the <see cref="T:Couchbase.IHttpClient"/> using the Hammock REST library.
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpClient">
-            <summary>
-            Defines an http client used by the <see cref="T:CouchbaseNode"/> to retrieve data from the views.
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpRequest">
-            <summary>
-            Represents an http request sent to the Couchbase servers.
-            </summary>
-        </member>
-        <member name="M:Couchbase.IHttpRequest.AddParameter(System.String,System.String)">
-            <summary>
-            Adds a parameter to the request. Parameters will be appended to the query string or to the POST body, depending on the type of the request.
-            </summary>
-            <param name="name"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Couchbase.IHttpRequest.GetResponse">
-            <summary>
-            Executes the request and returns the response sent by the server.
-            </summary>
-            <returns>The response sent by the server.</returns>
-        </member>
-        <member name="P:Couchbase.IHttpRequest.Method">
-            <summary>
-            The HTTP method of the request.
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpResponse">
-            <summary>
-            represents an http response sent by the Couchbase servers.
-            </summary>
-        </member>
-        <member name="T:Couchbase.HammockHttpClientFactory">
-            <summary>
-            Creates instances of the Hammock implementation of <see cref="T:Couchbase.IHttpClient"/>.
-            </summary>
-        </member>
-        <member name="T:Couchbase.IHttpClientFactory">
-            <summary>
-            defines a class which is responsible for creating <see cref="T:Couchbase.IHttpClient"/> instances.
-            </summary>
-        </member>
-        <member name="M:Couchbase.IView.Limit(System.Int32)">
-            <summary>
-            The view will return only the specified number of items.
-            </summary>
-            <param name="value">The number of items to return.</param>
-            <returns>A new <see cref="T:Couchbase.IView"/> instance that contains the specified number of items from the start of the index in the view.</returns>
-        </member>
-        <member name="M:Couchbase.IView.Skip(System.Int32)">
-            <summary>
-            Bypasses the specified number of elements in the view then returns the remaining items.
-            </summary>
-            <param name="value">The number of elements to skip before returning the remaining items.</param>
-            <returns></returns>
-            <returns>A <see cref="T:Couchbase.IView"/> that contains the items that occur after the specified index in the view.</returns>
-        </member>
-        <member name="M:Couchbase.IView.Stale(Couchbase.StaleMode)">
-            <summary>
-            Couchbase will not update the view before returning the data even if it contains stale values. Use this mode if you favor improved query latency over data constistency.
-            </summary>
-            <param name="value"></param>
-            <returns>A new <see cref="T:Couchbase.IView"/> instance that includes the stale items from the view.</returns>
-        </member>
-        <member name="M:Couchbase.IView.Descending(System.Boolean)">
-            <summary>
-            Sort the items of the view in descending order.
-            </summary>
-            <returns>A new <see cref="T:Couchbase.IView"/> whose elements are sorted in descending order .</returns>
-        </member>
-        <member name="M:Couchbase.IView.StartKey(System.String)">
-            <summary>
-            Start of key range
-            </summary>
-            <param name="from"></param>
-            <returns>TBD</returns>
-        </member>
-        <member name="M:Couchbase.IView.EndKey(System.String)">
-            <summary>
-            End of key range
-            </summary>
-            <param name="to"></param>
-            <returns>TBD</returns>
-        </member>
-        <member name="M:Couchbase.IView.StartDocumentId(System.String)">
-            <summary>
-            Start of document id range
-            </summary>
-            <param name="from"></param>
-            <returns>TBD</returns>
-        </member>
-        <member name="M:Couchbase.IView.EndDocumentId(System.String)">
-            <summary>
-            End of document id range
-            </summary>
-            <param name="to"></param>
-            <returns>TBD</returns>
-        </member>
-        <member name="M:Couchbase.IView.Reduce(System.Boolean)">
-            <summary>
-            Specifies whether Couchbase must run the view's reduce function.
-            </summary>
-            <param name="reduce">A value that specifies whether to run the reduce function.</param>
-            <returns>A new <see cref="T:Couchbase.IView"/> that can be used to retrieve the items.</returns>
-        </member>
-        <member name="M:Couchbase.IView.Group(System.Boolean)">
-            <summary>
-            Specifies whether the reduce function reduces items to a set of distinct keys or to a single result row.
-            </summary>
-            <param name="group">A value that specifies the behavior of the reduce function.</param>
-            <returns>A new <see cref="T:Couchbase.IView"/> that can be used to retrieve the items.</returns>
-        </member>
-        <member name="M:Couchbase.IView.GroupAt(System.Int32)">
-            <summary>
-            Specifies how many items of the key array are used to group the items by the reduce function.
-            </summary>
-            <param name="level">The level of required grouping.</param>
-            <returns>A new <see cref="T:Couchbase.IView"/> that can be used to retrieve the items.</returns>
-        </member>
-        <member name="M:Couchbase.IView.WithInclusiveEnd(System.Boolean)">
-            <summary>
-            Specifies whether the end of the range (document or view key) is included in the result.
-            </summary>
-            <param name="inclusive">A value that specifies whether the end of the range is included in the result.</param>
-            <returns>A new <see cref="T:Couchbase.IView"/> that can be used to retrieve the items.</returns>
-        </member>
-        <member name="M:Couchbase.IView.GetPagedView(System.Int32)">
-            <summary>
-            Returns a view which allows the user to page retrieve all items of an index in pages.
-            </summary>
-            <param name="pageSize"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Couchbase.Management.ICouchbaseCluster.ListBuckets">
-            <summary>
-            List the buckets from the cluster
-            </summary>
-            <returns>An array of Bucket instances</returns>
-        </member>
-        <member name="M:Couchbase.Management.ICouchbaseCluster.TryListBuckets(Couchbase.Management.Bucket[]@)">
-            <summary>
-            List the buckets from the cluster, swallowing possible exceptions
-            </summary>
-            <returns>An array of Bucket instances</returns>
-        </member>
-        <member name="M:Couchbase.Management.ICouchbaseCluster.FlushBucket(System.String)">
-            <summary>
-            Flush all data from a bucket
-            </summary>
-            <param name="bucketName">bucket name</param>
-        </member>
-        <member name="M:Couchbase.ObserveHandler.HandleMasterPersistence(Couchbase.ICouchbaseServerPool)">
-            <summary>
-            Handle the scenario when PersistTo == 1
-            </summary>
         </member>
         <member name="T:Couchbase.MessageStreamListener">
             <summary>
@@ -775,32 +400,10 @@
             <param name="bucketPassword">The password of the bucket this client will connect to.</param>
         </member>
         <member name="M:Couchbase.CouchbaseClient.#ctor(System.String)">
-            <summary>
-            Initializes a new instance of the <see cref="T:Couchbase.CouchbaseClient" /> class using the specified configuration 
-            section.
-            </summary>
-            <param name="sectionName">The name of the configuration section to load.</param>
+            <summary>Obsolete. Use .ctor(bucket, password) to explicitly set the bucket password.</summary>
         </member>
-        <member name="M:Couchbase.CouchbaseClient.GetView(System.String,System.String)">
-            <summary>
-            Returns an object representing the specified view in the specified design document.
-            </summary>
-            <param name="designName">The name of the design document.</param>
-            <param name="viewName">The name of the view.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Couchbase.CouchbaseClient.GetView``1(System.String,System.String,System.Boolean)">
-            <summary>
-            Returns an object representing the specified view in the specified design document.
-            </summary>
-            <param name="designName">The name of the design document.</param>
-            <param name="viewName">The name of the view.</param>
-            <param name="shouldLookupDocById">
-            	When true, the client will return an instance of T by deserializing the document that
-            	is retrieved using the row's id.  When false (use when emitting projections), the client 
-            	simply attempts to deserialize the view's value into an instance of T by matching properties.
-            </param>
-            <returns></returns>
+        <member name="M:Couchbase.CouchbaseClient.#ctor(Couchbase.Configuration.ICouchbaseClientConfiguration,System.String)">
+            <summary>Obsolete. Use .ctor(config, bucket, password) to explicitly set the bucket password.</summary>
         </member>
         <member name="T:Couchbase.CouchbasePool">
             <summary>
@@ -824,37 +427,6 @@
             <param name="configuration">The configuration to be used.</param>
             <param name="bucketName">The name of the bucket to connect to. Overrides the configuration's Bucket property.</param>
             <param name="bucketPassword">The password to the bucket. Overrides the configuration's BucketPassword property.</param>
-        </member>
-        <member name="T:Couchbase.Protocol.CouchbaseOpCode">
-            <summary>
-            These enumerations are for op codes that are specific to Couchbase Server
-            and would therefore not belong in the OpCode enum as defined in Enyim.Caching
-            </summary>
-        </member>
-        <member name="P:Couchbase.Results.IObserveOperationResult.Key">
-            <summary>
-            The key to be observed
-            </summary>
-        </member>
-        <member name="P:Couchbase.Results.IObserveOperationResult.Cas">
-            <summary>
-            Cas associated with a particular observation of the key to be observed
-            </summary>
-        </member>
-        <member name="P:Couchbase.Results.IObserveOperationResult.KeyState">
-            <summary>
-            Indicates whether a key has been persisted
-            </summary>
-        </member>
-        <member name="P:Couchbase.Results.IObserveOperationResult.ReplicationStats">
-            <summary>
-            Average replication time for the cluster
-            </summary>
-        </member>
-        <member name="P:Couchbase.Results.IObserveOperationResult.PersistenceStats">
-            <summary>
-            Average persistence time for the cluster
-            </summary>
         </member>
         <member name="T:Couchbase.VBucketAwareOperationFactory">
             <summary>
