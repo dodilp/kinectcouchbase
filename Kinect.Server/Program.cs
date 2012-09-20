@@ -9,6 +9,7 @@ using Microsoft.Kinect;
 using Couchbase;
 using Enyim.Caching.Memcached;
 using Twitterizer;
+using Couchbase.Extensions;
 
 namespace Kinect.Server
 {
@@ -25,7 +26,7 @@ namespace Kinect.Server
         static void Main(string[] args)
         {
             InitializeCouchbase();
-            DiscoverKinectSensor();
+            //DiscoverKinectSensor();
             InitializeSockets();
         }
 
@@ -76,7 +77,7 @@ namespace Kinect.Server
             // Init the found and connected device
             if (m_kinect.Status == KinectStatus.Connected)
             {
-                InitilizeKinect();
+                //InitilizeKinect();
             }
         }
 
@@ -116,11 +117,11 @@ namespace Kinect.Server
                     }
 
                     //Try to push in CB
-                    String JSONStringFormat = "{ \"score\": \"" + score.ToString() + "\", \"name\": \"" + name.ToString() + "\" }";
+					var gameResult = new GameResult { Name = name, Score = score };
                     TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
                     int timestamp  = (int) t.TotalSeconds;
                    
-                    m_cclient.Store(StoreMode.Set, timestamp.ToString(), (Object)JSONStringFormat);
+                    m_cclient.StoreJson(StoreMode.Set, timestamp.ToString(), gameResult);
 
                 };
             });

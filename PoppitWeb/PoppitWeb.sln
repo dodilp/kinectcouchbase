@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoppitWeb", "PoppitWeb\PoppitWeb.csproj", "{2FA3C4F1-A71A-47C3-94D2-B518FA746B6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kinect.Server", "..\Kinect.Server\Kinect.Server.csproj", "{635FB54B-3DD0-453F-BC0B-67A754A2E5DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{2257015C-8E36-4921-948F-6B0EC7412D1E}"
+	ProjectSection(SolutionItems) = preProject
+		color-0.4.1.min.js = color-0.4.1.min.js
+		excanvas.js = excanvas.js
+		game.js = game.js
+		index.html = index.html
+		jquery.alerts.css = jquery.alerts.css
+		jquery.alerts.js = jquery.alerts.js
+		leaderboard.html = leaderboard.html
+		propulsion_1.2.js = propulsion_1.2.js
+		style.css = style.css
+		TwitterFeed.html = TwitterFeed.html
+		Wallpaper.jpg = Wallpaper.jpg
+		web-sockets.js = web-sockets.js
+		background.png = background.png
+		balloon_blue.png = balloon_blue.png
+		balloon_green.png = balloon_green.png
+		balloon_red.png = balloon_red.png
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2FA3C4F1-A71A-47C3-94D2-B518FA746B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FA3C4F1-A71A-47C3-94D2-B518FA746B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FA3C4F1-A71A-47C3-94D2-B518FA746B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FA3C4F1-A71A-47C3-94D2-B518FA746B6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{635FB54B-3DD0-453F-BC0B-67A754A2E5DE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{635FB54B-3DD0-453F-BC0B-67A754A2E5DE}.Debug|Any CPU.Build.0 = Debug|x86
+		{635FB54B-3DD0-453F-BC0B-67A754A2E5DE}.Debug|x86.ActiveCfg = Debug|x86
+		{635FB54B-3DD0-453F-BC0B-67A754A2E5DE}.Debug|x86.Build.0 = Debug|x86
+		{635FB54B-3DD0-453F-BC0B-67A754A2E5DE}.Release|Any CPU.ActiveCfg = Release|x86
+		{635FB54B-3DD0-453F-BC0B-67A754A2E5DE}.Release|Any CPU.Build.0 = Release|x86
+		{635FB54B-3DD0-453F-BC0B-67A754A2E5DE}.Release|x86.ActiveCfg = Release|x86
+		{635FB54B-3DD0-453F-BC0B-67A754A2E5DE}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = PoppitWeb\PoppitWeb.csproj
+	EndGlobalSection
+EndGlobal
