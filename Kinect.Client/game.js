@@ -74,8 +74,8 @@ var hands = [];
         }
     };
 
-	init('canvas',800,800); //640 * 480
-	loop.rate = 28;
+	init('canvas',1000,1000); //640 * 480
+	loop.rate = 25;
 
 	// The balloon object is created to better organize the sprites
 	spr.balloon = {};

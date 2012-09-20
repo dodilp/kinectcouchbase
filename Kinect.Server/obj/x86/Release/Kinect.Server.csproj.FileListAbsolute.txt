@@ -15,3 +15,10 @@ C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Couchba
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Enyim.Caching.xml
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Newtonsoft.Json.xml
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\obj\x86\Release\Kinect.Server.exe
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Twitterizer2.Asynchronous.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Twitterizer2.dll
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Newtonsoft.Json.pdb
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Twitterizer2.pdb
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Twitterizer2.xml
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Twitterizer2.Asynchronous.pdb
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Twitterizer2.Asynchronous.xml

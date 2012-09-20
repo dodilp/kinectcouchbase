@@ -62,7 +62,7 @@ namespace Kinect.Server
                     if (joint.JointType != JointType.WristLeft && joint.JointType != JointType.WristRight)
                         continue;
 
-                    Joint scaled = joint.ScaleTo(640, 480);
+                    Joint scaled = joint.ScaleTo(1000, 1000);
 
                     jsonSkeleton.Joints.Add(new JSONJoint
                     {

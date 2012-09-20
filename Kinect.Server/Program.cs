@@ -132,13 +132,13 @@ namespace Kinect.Server
 
         private static void InitilizeKinect()
         {
-                m_kinect.ColorStream.Enable();
+                //m_kinect.ColorStream.Enable();
 
-                m_kinect.DepthStream.Enable();
+                //m_kinect.DepthStream.Enable();
 
                 m_kinect.SkeletonStream.Enable();
 
-                m_kinect.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
+                //m_kinect.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
          
                 m_kinect.Start();
 
@@ -181,10 +181,7 @@ namespace Kinect.Server
                 string json = users.Serialize();
                 foreach (var socket in _sockets)
                 {
-                    socket.Send(json);
-                    TimeSpan t = (DateTime.UtcNow - new DateTime(1970, 1, 1));
-                    int timestamp = (int)t.TotalSeconds;
-                    //m_cclient.Store(Enyim.Caching.Memcached.StoreMode.Set, timestamp.ToString(), json);         
+                    socket.Send(json);         
                 }
             }
         }
