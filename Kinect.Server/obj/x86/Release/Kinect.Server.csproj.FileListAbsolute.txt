@@ -3,7 +3,6 @@
 \\psf\Home\Desktop\Kinect\Kinect.Server\bin\Release\Fleck.dll
 \\psf\Home\Desktop\Kinect\Kinect.Server\obj\x86\Release\Kinect.Server.exe
 \\psf\Home\Desktop\Kinect\Kinect.Server\obj\x86\Release\Kinect.Server.pdb
-C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\obj\x86\Release\ResolveAssemblyReference.cache
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Kinect.Server.exe.config
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Kinect.Server.exe
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Couchbase.dll
@@ -22,3 +21,4 @@ C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Twitter
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Twitterizer2.xml
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Twitterizer2.Asynchronous.pdb
 C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\bin\Release\Twitterizer2.Asynchronous.xml
+C:\Users\root\Documents\GitHub\kinectcouchbase\Kinect.Server\obj\x86\Release\Kinect.Server.csprojResolveAssemblyReference.cache

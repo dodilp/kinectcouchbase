@@ -3,8 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" debug="true">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<script src="http://code.jquery.com/jquery-1.6.4.js" type="text/javascript"></script>
-	<script src="http://tinysort.sjeiti.com/src/jquery.tinysort.js" type="text/javascript"></script>
+	<script src="/Content/jquery.js" type="text/javascript"></script>
 
 	<title>Dynamic Leaderboard</title>
 
@@ -70,14 +69,12 @@ h1 { font-size: 200% }
 	<ul id="leaderboard"></ul>
 	
 	<script type="text/javascript">
-
-    //alert('Hi');
+	//alert('Hi');
     poll();
 
     function poll()
     {
     var xhr = new XMLHttpRequest();
-    debugger;
     xhr.open("GET", "/LeaderBoard", true);
     xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
@@ -100,22 +97,27 @@ h1 { font-size: 200% }
     {
       //alert(data);
       var obj = jQuery.parseJSON(data);
-      //alert(obj[3].Score);
+      // alert(obj[3].Score);
       
       for(var i=0;i<obj.length;i++)
-      {
+      { 
+      
+      	//alert(obj.rows[i]);
         //alert(obj.rows[i]);
         if ($("#user-"+obj[i].Name).length == 0)
         {
-          $("#leaderboard").append("<li><h1 style=\'display:inline\' id=\'user-" + obj[i].Name + "\'>" + obj[i].Score + "</h1><img style=\'height:50px\' src=\'https://api.twitter.com/1/users/profile_image/" + obj[i].Name + "\'/></li>");
+        //console.log($("<li><h1 style=\'display:inline\' id=\'user-" + obj[i].Name + "\'>" + obj[i].Score + "</h1><img style=\'height:50px\' src=\'https://api.twitter.com/1/users/profile_image/" + obj[i].Name + "\'/></li>"))
+          //alert("<li><h1 style=\'display:inline\' id=\'user-" + obj[i].Name + "\'>" + obj[i].Score + "</h1><img style=\'height:50px\' src=\'https://api.twitter.com/1/users/profile_image/" + obj[i].Name + "\'/></li>");
+          $("#leaderboard").append("<li><h1 style=\'display:inline\' id=\'user-" + obj[i].Name + "\'>" + obj[i].Name + " : " + obj[i].Score + "</h1></li>");
           //https://api.twitter.com/1/users/profile_image/abraham
+          //$("#user-"+obj[i].Name).html(obj[i].Score);
         }
         else
         {
-          $("#user-"+obj[i].Name).html(obj[i].Score);
+          $("#user-"+obj[i].Name).html(obj[i].Name + " : " + obj[i].Score);
         }
       }
-      sort();
+      //sort();
     }
 
     function sort()

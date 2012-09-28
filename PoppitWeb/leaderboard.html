@@ -76,8 +76,8 @@ h1 { font-size: 200% }
     function poll()
     {
     var xhr = new XMLHttpRequest();
-    debugger;
-    xhr.open("GET", "http://localhost:8092/default/_design/dev_scoreboard/_view/scoreboard?connection_timeout=60000&limit=5&skip=0&limit=10&stale=false&descending=true&stale=false", true);
+    
+    xhr.open("GET", "http://192.168.2.1:8092/default/_design/dev_scoreboard/_view/scoreboard?connection_timeout=60000&skip=0&limit=10&stale=false&descending=true&stale=false", true);
     xhr.onreadystatechange = function() {
     if (xhr.readyState == 4) {
     if(xhr.status == 200) {
@@ -107,6 +107,7 @@ h1 { font-size: 200% }
         if ($("#user-"+obj.rows[i].value).length == 0)
         {
           $("#leaderboard").append("<li><h1 style=\'display:inline\' id=\'user-" + obj.rows[i].value + "\'>" + obj.rows[i].key + "</h1><img style=\'height:50px\' src=\'https://api.twitter.com/1/users/profile_image/" + obj.rows[i].value + "\'/></li>");
+		  //$("#leaderboard").append("<li><h1 style=\'display:inline\' id=\'user-" + obj.rows[i].value + "\'>" + obj.rows[i].key + "</h1>" + obj.rows[i].value + "</li>");
           //https://api.twitter.com/1/users/profile_image/abraham
         }
         else

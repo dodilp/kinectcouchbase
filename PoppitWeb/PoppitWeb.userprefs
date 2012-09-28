@@ -1,6 +1,48 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TwitterFeed.html">
+    <Files>
+      <File FileName="c:\Users\root\Documents\GitHub\kinectcouchbase\PoppitWeb\PoppitWeb\Global.asax.cs" Line="7" Column="18" />
+      <File FileName="PoppitWeb\Controllers\HomeController.cs" Line="23" Column="4" />
+      <File FileName="index.html" Line="34" Column="11" />
+      <File FileName="PoppitWeb\Views\Home\Index.aspx" Line="31" Column="35" />
+      <File FileName="..\Kinect.Server\Program.cs" Line="16" Column="18" />
+      <File FileName="PoppitWeb\Views\Home\Twitter.aspx" Line="84" Column="1" />
+      <File FileName="PoppitWeb\Scripts\game.js" Line="87" Column="31" />
+      <File FileName="..\Kinect.Server\Models\GameResult.cs" Line="24" Column="3" />
+      <File FileName="PoppitWeb\Controllers\LeaderBoardController.cs" Line="29" Column="17" />
+      <File FileName="PoppitWeb\Models\GameResult.cs" Line="7" Column="23" />
+      <File FileName="leaderboard.html" Line="109" Column="11" />
+      <File FileName="PoppitWeb\Views\Home\LeaderBoard.aspx" Line="111" Column="11" />
+      <File FileName="..\Kinect.Server\App.config" Line="1" Column="1" />
+      <File FileName="PoppitWeb\Views\Web.config" Line="1" Column="1" />
+      <File FileName="PoppitWeb\Web.config" Line="1" Column="1" />
+      <File FileName="TwitterFeed.html" Line="109" Column="8" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="UI" expanded="True" />
+          <Node name="Kinect.Server" expanded="True" />
+          <Node name="PoppitWeb" expanded="True">
+            <Node name="Content" expanded="True" />
+            <Node name="Controllers" expanded="True" />
+            <Node name="Models" expanded="True" />
+            <Node name="Scripts" expanded="True" />
+            <Node name="Views" expanded="True">
+              <Node name="Home" expanded="True">
+                <Node name="LeaderBoard.aspx" selected="True" />
+              </Node>
+            </Node>
+            <Node name="Global.asax" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

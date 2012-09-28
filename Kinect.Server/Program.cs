@@ -26,7 +26,7 @@ namespace Kinect.Server
         static void Main(string[] args)
         {
             InitializeCouchbase();
-            //DiscoverKinectSensor();
+            DiscoverKinectSensor();
             InitializeSockets();
         }
 
@@ -77,7 +77,7 @@ namespace Kinect.Server
             // Init the found and connected device
             if (m_kinect.Status == KinectStatus.Connected)
             {
-                //InitilizeKinect();
+                InitilizeKinect();
             }
         }
 
@@ -110,11 +110,12 @@ namespace Kinect.Server
                     int barIndex = message.IndexOf("|",0);
                     String name = message.Substring(0, barIndex);
                     Int32 score = Int32.Parse(message.Substring(barIndex + 1));
+                    /*
                     if (score > 100) //We only want to tweet sometimes -- not for all games
                     {
-                        String msgformat = "{0} just scored {1}";
+                        String msgformat = PickRandomTweetMessage();
                         Tweet(String.Format(msgformat, name, score));
-                    }
+                    }*/
 
                     //Try to push in CB
 					var gameResult = new GameResult { Name = name, Score = score };
@@ -205,6 +206,22 @@ namespace Kinect.Server
                 {
 
                 });
+        }
+
+        public static String PickRandomTweetMessage()
+        {
+
+            String[] possibleTweets = { "Awesome {0} scored {1} on #couchbase pop-it. #couchconf #afterparty",
+                                        "{0} scored {1} on #couchbase pop-it. What a player #couchconf",
+                                        "{0} might have just won the game. Play pop-it and try to beat the score of {1}. #couchconf #afterparty",
+                                        "{0} is playing the pop-it game powered by Couchbase Server. #couchbase"
+                                     };
+
+            //Return a random tweet
+            Random r = new Random();
+            int index = r.Next(possibleTweets.Length);
+            var tweet = possibleTweets[index];
+            return tweet;
         }
     }
 }

@@ -25,10 +25,10 @@
     <script src="scripts/color-0.4.1.min.js"></script>
 </head>
   <body>
-    <h1>Poppit! Powered by Couchbase</h1>
+    <h1 align="center">Poppit! Powered by Couchbase</h1>
     
     
-    <iframe src="/Home/LeaderBoard" style="position:absolute;left:0;height:300px;border:0px;"></iframe>
+    <iframe src="/Home/LeaderBoard" style="position:absolute;left:0;height:100%;border:0px;"></iframe>
     
     
     <canvas id="canvas" width="640" height="480"></canvas>
